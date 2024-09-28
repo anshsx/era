@@ -74,11 +74,11 @@ img {
 }
 
 .gradient-black-pink {
-    background: linear-gradient(to right, #2a12ff, #ff2b87);
+    background: linear-gradient(to right, #54c3ff, #ffa6cc);
 }
 
 .gradient-black-orange {
-    background: linear-gradient(to right, #ff4e08, #ff5cab);
+    background: linear-gradient(to right, #ff4e08, #ffa6cc);
 }
 
 .gradient-blue-green {
