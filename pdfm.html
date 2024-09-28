@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger - Your Ultimate PDF Solution</title>
+    <link rel="stylesheet" href="pdfm.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+    <header class="app-bar">
+        <h1 class="gradient-text">PDF Merger</h1>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2 class="gradient-text">Merge PDFs with Ease</h2>
+                <p>🥳 Combine multiple PDF files into one seamless document in seconds!</p>
+            </div>
+        </section>
+        <section class="merger-tool">
+            <div class="container">
+                <div class="card">
+                    <h3 class="gradient-text">Upload Your PDFs</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" multiple accept=".pdf" class="file-input">
+                        <label for="fileInput" class="file-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            <span>Choose PDFs or Drag and drop them here</span>
+                        </label>
+                    </div>
+                    <div class="file-slider-container">
+                        <div id="fileList" class="file-slider"></div>
+                    </div>
+                    <div class="merge-options">
+                        <input type="text" id="mergedFileName" placeholder="Enter file name (Optional) " class="file-name-input">
+                    </div>
+                    <div class="advanced-options">
+                        <label>
+                            <input type="checkbox" id="addPageNumbers"> Add page numbers 🔢
+                        </label>
+                    </div>
+                    <button id="mergeButton" class="merge-button" disabled>⚡ Merge PDFs</button>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="features">
+            <div class="container">
+                <h3 class="gradient-text">Why Choose PDF Merger Pro?</h3>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                        <h4>Easy to Use</h4>
+                        <p>☺️ Simple drag-and-drop interface for quick PDF merging</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h4>Secure</h4>
+                        <p>🔒 Your files are processed locally, ensuring maximum privacy</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <h4>Fast</h4>
+                        <p>⚡ Merge PDFs in seconds, saving you valuable time</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        <h4>Offline</h4>
+                        <p>📶 No internet required, process PDFs entirely offline</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="faq">
+            <div class="container">
+                <h3 class="gradient-text">Frequently Asked Questions</h3>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>How many PDFs can I merge at once?</summary>
+                        <p>🥳 You can merge as many PDFs as you want! Our tool is designed to handle multiple files efficiently.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Is there a file size limit?</summary>
+                        <p>🥳 There's no strict file size limit, but larger files may take longer to process. We recommend keeping individual files under 100MB for optimal performance.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do I need an internet connection to use PDF Merger Pro?</summary>
+                        <p>🥳 No, you don't! PDF Merger Pro works entirely offline. Once the page is loaded, you can merge PDFs without an internet connection.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Is my data safe?</summary>
+                        <p>🥳 All processing is done locally in your browser. Your PDFs never leave your device, ensuring maximum privacy and security.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h3 class="gradient-text">Contact Us</h3>
+                <form id="contactForm" class="contact-form">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="gradient-text">PDF MERGER</h4>
+                    <ul>
+                        <li><a href="#features">PDF Merger</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="https://en.wikipedia.org/" target="_blank">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="gradient-text">Our Other Products</h4>
+                    <ul>
+                        <li><a href="#">Image To PDF</a></li>
+                        <li><a href="#">Weather</a></li>
+                        <li><a href="#">Movie Info</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDF Merger. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8a4 4 0 0 1 3.37 3.37z"></path>
+  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="pdfm.js"></script>
+</body>
+                      </html>
