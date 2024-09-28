@@ -52,7 +52,8 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
       isResponseGenerating = false;
       incomingMessageDiv.querySelector(".icon").classList.remove("hide");
       localStorage.setItem("saved-chats", chatContainer.innerHTML); // Save chats to local storage
-    // Scroll to the bottom
+    }
+    chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
   }, 75);
 }
 
@@ -91,7 +92,7 @@ const generateAPIResponse = async (incomingMessageDiv) => {
 // Show a loading animation while waiting for the API response
 const showLoadingAnimation = () => {
   const html = `<div class="message-content">
-                  <img class="avatar" src="gemini.svg" alt="Gemini avatar">
+                  <img class="avatar" src="images/gemini.svg" alt="Gemini avatar">
                   <p class="text"></p>
                   <div class="loading-indicator">
                     <div class="loading-bar"></div>
@@ -104,7 +105,7 @@ const showLoadingAnimation = () => {
   const incomingMessageDiv = createMessageElement(html, "incoming", "loading");
   chatContainer.appendChild(incomingMessageDiv);
 
-  chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
+ // Scroll to the bottom
   generateAPIResponse(incomingMessageDiv);
 }
 
@@ -125,7 +126,7 @@ const handleOutgoingChat = () => {
   isResponseGenerating = true;
 
   const html = `<div class="message-content">
-                  <img class="avatar" src="user.jpg" alt="User avatar">
+                  <img class="avatar" src="images/user.jpg" alt="User avatar">
                   <p class="text"></p>
                 </div>`;
 
