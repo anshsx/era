@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="gradient-text bold-text">ERA</h1>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 id="animated-text">
+            <span class="text-content">Products for <br> the new <span class="gradient-text">ERA</span></span>
+        </h2>
+        <p class="subtitle">Easy solutions for every problem</p>
+        <div class="button-container">
+            <button class="explore-btn" onclick="location.href='products.html'">Explore Products</button>
+            <button class="about-btn">About Us</button>
+        </div>
+    </div>
+
+    <!-- Overlay Screen for Sections -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-close" id="overlay-close">&#10005;</div> <!-- Cross icon for closing -->
+        <div class="overlay-content">
+            <!-- Convert texts into buttons -->
+            <a href="products.html" class="overlay-btn">Our Products</a> <!-- Updated href -->
+            <a href="https://example.com/about" class="overlay-btn">About Us</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
