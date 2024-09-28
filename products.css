@@ -1,0 +1,86 @@
+:root {
+    --app-bar-height: 60px; /* Adjustable height for the app bar */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Set background to black */
+}
+
+.app-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Remove vertical padding to allow height control */
+    height: var(--app-bar-height); /* Use variable for app bar height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for a frozen glass effect */
+    backdrop-filter: blur(10px); /* Frozen glass effect */
+    position: fixed; /* Fixed positioning for the app bar */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure app bar is above other content */
+}
+
+.gradient-text {
+    background: linear-gradient(to right, grey, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px; /* Font size */
+    font-weight: 500; /* Make app bar text bold */
+}
+
+.list-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--app-bar-height) + 10px) 20px; /* Added top padding to accommodate fixed app bar */
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    width: 90%; /* Width of the container */
+    padding: 15px; /* Container padding */
+    margin: 5px 0; /* Reduced gap between containers */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid grey; /* Add grey border */
+    text-decoration: none; /* Remove underline from anchor */
+    color: inherit; /* Inherit text color from parent */
+}
+
+img {
+    margin-right: 15px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 24px; /* Increased title font size */
+    font-weight: bold;
+    color: white; /* Set title text color to white */
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 16px; /* Increased subtitle font size */
+    color: white; /* Set subtitle text color to white */
+    margin: 0;
+}
+
+.gradient-black-pink {
+    background: linear-gradient(to right, black, pink);
+}
+
+.gradient-black-orange {
+    background: linear-gradient(to right, black, orange);
+}
+
+.gradient-blue-green {
+    background: linear-gradient(to right, black, green);
+                                }
