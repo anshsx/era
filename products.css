@@ -74,13 +74,13 @@ img {
 }
 
 .gradient-black-pink {
-    background: linear-gradient(to right, black, pink);
+    background: linear-gradient(to right, #2a12ff, #ff2b87);
 }
 
 .gradient-black-orange {
-    background: linear-gradient(to right, black, orange);
+    background: linear-gradient(to right, #ff4e08, #ff5cab);
 }
 
 .gradient-blue-green {
-    background: linear-gradient(to right, black, green);
+    background: linear-gradient(to right, #ffe208, #ffa6cc);
                                 }
