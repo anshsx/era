@@ -52,8 +52,7 @@ const showTypingEffect = (text, textElement, incomingMessageDiv) => {
       isResponseGenerating = false;
       incomingMessageDiv.querySelector(".icon").classList.remove("hide");
       localStorage.setItem("saved-chats", chatContainer.innerHTML); // Save chats to local storage
-    }
-    chatContainer.scrollTo(0, chatContainer.scrollHeight); // Scroll to the bottom
+    // Scroll to the bottom
   }, 75);
 }
 
