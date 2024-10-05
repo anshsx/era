@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Dictionary</title>
+    <link rel="stylesheet" href="dictionary.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Minimalist Dictionary</h1>
+            <p>Explore the essence of language</p>
+        </header>
+        <main>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search for a word...">
+                <button id="search-button" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+                <select id="language-select">
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                    <option value="fr">FR</option>
+                    <option value="de">DE</option>
+                </select>
+            </div>
+            <div class="controls">
+                <div class="font-size-control">
+                    <label for="font-size-slider">Font Size</label>
+                    <input type="range" id="font-size-slider" min="14" max="24" value="16">
+                </div>
+                <button id="word-of-the-day-button">Word of the Day</button>
+            </div>
+            <div id="loading-indicator" class="hidden">
+                <div class="spinner"></div>
+            </div>
+            <div id="result-container" class="hidden">
+                <div class="word-header">
+                    <h2 id="word-title"></h2>
+                    <p id="word-phonetic"></p>
+                    <div class="word-actions">
+                        <button id="play-pronunciation" aria-label="Play pronunciation">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        </button>
+                        <button id="add-to-favorites" aria-label="Add to favorites">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="definitions">Definitions</button>
+                    <button class="tab-button" data-tab="examples">Examples</button>
+                    <button class="tab-button" data-tab="synonyms">Synonyms</button>
+                    <button class="tab-button" data-tab="antonyms">Antonyms</button>
+                </div>
+                <div id="tab-content" class="tab-content"></div>
+            </div>
+            <div class="additional-features">
+                <button id="generate-quiz">Start Quiz</button>
+                <button id="view-history">History</button>
+                <button id="view-favorites">Favorites</button>
+            </div>
+            <div id="quiz-container" class="hidden">
+                <h3>Word Quiz</h3>
+                <div id="quiz-question"></div>
+                <div id="quiz-options"></div>
+                <p id="quiz-progress"></p>
+                <p id="quiz-score"></p>
+            </div>
+            <div id="history-container" class="hidden">
+                <h3>Search History</h3>
+                <ul id="history-list"></ul>
+            </div>
+            <div id="favorites-container" class="hidden">
+                <h3>Favorites</h3>
+                <ul id="favorites-list"></ul>
+            </div>
+            <div class="statistics">
+                <h3>Learning Progress</h3>
+                <p>Words Learned: <span id="words-learned">0</span> / <span id="daily-goal">10</span></p>
+                <div id="progress-bar">
+                    <div id="progress"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <audio id="pronunciation-audio"></audio>
+    <script src="dictionary.js"></script>
+</body>
+              </html>
