@@ -84,3 +84,10 @@ img {
 .gradient-blue-green {
     background: linear-gradient(to right, #ffe208, #ffa6cc);
                                 }
+.gradient-green-blue {
+    background: linear-gradient(to right, #99ffa7, #99f5ff);
+}
+
+.gradient-purple-babypink {
+    background: linear-gradient(to right, #8b6bff, #ffb8f1);
+}
