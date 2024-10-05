@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: black;
+    background-color: white;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+main {
+    padding: 1rem 0;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"], button, select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid black;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: black;
+}
+
+button {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.font-size-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.font-size-control label {
+    font-size: 0.9rem;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.tab-button {
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid black;
+}
+
+.tab-content {
+    padding: 1.5rem 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.additional-features {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.additional-features button {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+#progress-bar {
+    width: 100%;
+    background-color: #f0f0f0;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+#progress {
+    width: 0;
+    height: 5px;
+    background-color: black;
+    transition: width 0.5s ease;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+.word-header {
+    margin-bottom: 1rem;
+}
+
+.word-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Loading Indicator */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: black;
+    animation: spin 1s ease-in-out infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .search-container {
+        flex-wrap: wrap;
+    }
+
+    .search-container > * {
+        flex: 1 1 100%;
+    }
+
+    .search-container > button,
+    .search-container > select {
+        flex: 1 1 auto;
+    }
+
+    .controls, .tabs, .additional-features {
+        flex-direction: column;
+    }
+
+    .controls > *, .tabs > *, .additional-features > * {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .font-size-control {
+        justify-content: space-between;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.slideIn {
+    animation: slideIn 0.5s ease-in-out;
+  }
