@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldgutter.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/dialog/dialog.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Advanced Code Editor</h1>
+            <div class="actions">
+                <button id="newFileBtn" class="btn" aria-label="New file">
+                    <span class="material-icons">note_add</span>
+                </button>
+                <button id="runBtn" class="btn" aria-label="Run code">
+                    <span class="material-icons">play_arrow</span>
+                </button>
+                <button id="saveBtn" class="btn" aria-label="Save code">
+                    <span class="material-icons">save</span>
+                </button>
+                <button id="loadBtn" class="btn" aria-label="Load code">
+                    <span class="material-icons">folder_open</span>
+                </button>
+                <button id="shareBtn" class="btn" aria-label="Share code">
+                    <span class="material-icons">share</span>
+                </button>
+                <button id="settingsBtn" class="btn" aria-label="Settings">
+                    <span class="material-icons">settings</span>
+                </button>
+                <button id="themeToggle" class="btn" aria-label="Toggle theme">
+                    <span class="material-icons">brightness_6</span>
+                </button>
+            </div>
+        </header>
+        <main id="mainContainer">
+            <div id="sidebarContainer">
+                <div id="fileTree"></div>
+                <div id="snippets">
+                    <h3>Snippets</h3>
+                    <ul id="snippetList"></ul>
+                    <button id="addSnippetBtn" class="btn">Add Snippet</button>
+                </div>
+            </div>
+            <div id="editorContainer" class="panel">
+                <div class="panel-header">
+                    <div id="fileTabs"></div>
+                    <div class="editor-actions">
+                        <button id="formatBtn" class="btn" aria-label="Format code">
+                            <span class="material-icons">format_align_left</span>
+                        </button>
+                        <button id="undoBtn" class="btn" aria-label="Undo">
+                            <span class="material-icons">undo</span>
+                        </button>
+                        <button id="redoBtn" class="btn" aria-label="Redo">
+                            <span class="material-icons">redo</span>
+                        </button>
+                        <button id="findReplaceBtn" class="btn" aria-label="Find and Replace">
+                            <span class="material-icons">search</span>
+                        </button>
+                        <button id="toggleLineWrapBtn" class="btn" aria-label="Toggle Line Wrap">
+                            <span class="material-icons">wrap_text</span>
+                        </button>
+                        <button id="toggleMinimap" class="btn" aria-label="Toggle Minimap">
+                            <span class="material-icons">map</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="editor"></div>
+                <div id="minimap" class="hidden"></div>
+            </div>
+            <div id="resizeHandle" class="resize-handle"></div>
+            <div id="previewContainer" class="panel">
+                <div class="panel-header">
+                    <h2>Preview</h2>
+                    <div class="preview-actions">
+                        <button id="refreshPreviewBtn" class="btn" aria-label="Refresh preview">
+                            <span class="material-icons">refresh</span>
+                        </button>
+                    </div>
+                </div>
+                <iframe id="preview" title="Code Preview"></iframe>
+            </div>
+        </main>
+        <div id="consoleContainer" class="hidden">
+            <div class="panel-header">
+                <h2>Console</h2>
+                <div class="console-actions">
+                    <button id="clearConsole" class="btn" aria-label="Clear console">
+                        <span class="material-icons">clear_all</span>
+                    </button>
+                    <button id="downloadLogs" class="btn" aria-label="Download logs">
+                        <span class="material-icons">download</span>
+                    </button>
+                </div>
+            </div>
+            <div id="console"></div>
+        </div>
+        <button id="toggleConsole" class="btn toggle-console" aria-label="Toggle console">
+            <span class="material-icons">terminal</span>
+        </button>
+    </div>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <label for="fontSize">Font Size:</label>
+            <input type="range" id="fontSize" min="12" max="24" value="14">
+            <label for="tabSize">Tab Size:</label>
+            <input type="number" id="tabSize" min="2" max="8" value="4">
+            <label for="autoRun">Auto Run:</label>
+            <input type="checkbox" id="autoRun">
+            <label for="autoSave">Auto Save:</label>
+            <input type="checkbox" id="autoSave">
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="default">Default</option>
+                <option value="dracula">Dracula</option>
+                <option value="monokai">Monokai</option>
+                <option value="solarized">Solarized</option>
+                <option value="nord">Nord</option>
+            </select>
+            <label for="keymap">Keymap:</label>
+            <select id="keymap">
+                <option value="default">Default</option>
+                <option value="vim">Vim</option>
+                <option value="emacs">Emacs</option>
+                <option value="sublime">Sublime</option>
+            </select>
+            <label for="layout">Layout:</label>
+            <select id="layout">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+            <button id="closeSettings" class="btn">Close</button>
+        </div>
+    </div>
+    <div id="snippetModal" class="modal">
+        <div class="modal-content">
+            <h2>Add Snippet</h2>
+            <label for="snippetName">Name:</label>
+            <input type="text" id="snippetName">
+            <label for="snippetCode">Code:</label>
+            <textarea id="snippetCode"></textarea>
+            <button id="saveSnippet" class="btn">Save Snippet</button>
+            <button id="closeSnippetModal" class="btn">Close</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/html-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/css-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/brace-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/xml-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/comment-fold.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/search/search.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/search/searchcursor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/dialog/dialog.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/comment/comment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/keymap/vim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/keymap/emacs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/keymap/sublime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify-html.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
