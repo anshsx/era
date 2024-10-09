@@ -74,62 +74,62 @@ img {
 }
 
 
-.gradient-light-sunset {
+.gradient-sunset {
     background: linear-gradient(to right, #FFA07A, #D987CB);
 }
 
-.gradient-light-ocean {
+.gradient-ocean {
     background: linear-gradient(to right, #ADD8E6, #B6E3D3);
 }
 
-.gradient-light-royal-sky {
+.gradient-royal-sky {
     background: linear-gradient(to right, #6A8DB3, #B0E0E6);
 }
 
-.gradient-light-coral-peach {
+.gradient-coral-peach {
     background: linear-gradient(to right, #FFC1B6, #FFE4E1);
 }
 
-.gradient-light-lavender-pink {
+.gradient-lavender-pink {
     background: linear-gradient(to right, #EEEAF8, #FFCCE5);
 }
 
-.gradient-light-emerald-lime {
+.gradient-emerald-lime {
     background: linear-gradient(to right, #A5DCA0, #E5FBD7);
 }
 
-.gradient-light-crimson-gold {
+.gradient-crimson-gold {
     background: linear-gradient(to right, #F4A6A6, #FFEDB8);
 }
 
-.gradient-light-berry-pink {
+.gradient-berry-pink {
     background: linear-gradient(to right, #C89EDB, #FAD0DF);
 }
 
-.gradient-light-teal-blue {
+.gradient-teal-blue {
     background: linear-gradient(to right, #66CCCC, #7A9BC1);
 }
 
-.gradient-light-slate-gray {
+.gradient-slate-gray {
     background: linear-gradient(to right, #B0C4C7, #ECECEC);
 }
 
-.gradient-light-magenta-violet {
+.gradient-magenta-violet {
     background: linear-gradient(to right, #FFB0FF, #DAB1F4);
 }
 
-.gradient-light-cherry-lemon {
+.gradient-cherry-lemon {
     background: linear-gradient(to right, #FFA9A9, #FFF6B2);
 }
 
-.gradient-light-mint-white {
+.gradient-mint-white {
     background: linear-gradient(to right, #CCFFCC, #FAFAFA);
 }
 
-.gradient-light-burnt-sandy {
+.gradient-burnt-sandy {
     background: linear-gradient(to right, #F1B088, #FCEECB);
 }
 
-.gradient-light-indigo-lavender {
+.gradient-indigo-lavender {
     background: linear-gradient(to right, #A8A4D3, #E6EAFB);
 }
