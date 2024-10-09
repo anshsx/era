@@ -73,62 +73,63 @@ img {
     margin: 0;
 }
 
-.gradient-sunset {
-    background: linear-gradient(to right, #FF5E3A, #A10E8A);
+
+.gradient-light-sunset {
+    background: linear-gradient(to right, #FFA07A, #D987CB);
 }
 
-.gradient-ocean {
-    background: linear-gradient(to right, #00BFFF, #3CD3A8);
+.gradient-light-ocean {
+    background: linear-gradient(to right, #ADD8E6, #B6E3D3);
 }
 
-.gradient-royal-sky {
-    background: linear-gradient(to right, #002C77, #87CEEB);
+.gradient-light-royal-sky {
+    background: linear-gradient(to right, #6A8DB3, #B0E0E6);
 }
 
-.gradient-coral-peach {
-    background: linear-gradient(to right, #FF6F61, #FFB89C);
+.gradient-light-coral-peach {
+    background: linear-gradient(to right, #FFC1B6, #FFE4E1);
 }
 
-.gradient-lavender-pink {
-    background: linear-gradient(to right, #E6E6FA, #FFB6C1);
+.gradient-light-lavender-pink {
+    background: linear-gradient(to right, #EEEAF8, #FFCCE5);
 }
 
-.gradient-emerald-lime {
-    background: linear-gradient(to right, #50C878, #D3FFCE);
+.gradient-light-emerald-lime {
+    background: linear-gradient(to right, #A5DCA0, #E5FBD7);
 }
 
-.gradient-crimson-gold {
-    background: linear-gradient(to right, #DC143C, #FFD700);
+.gradient-light-crimson-gold {
+    background: linear-gradient(to right, #F4A6A6, #FFEDB8);
 }
 
-.gradient-berry-pink {
-    background: linear-gradient(to right, #9B59B6, #F1A7C1);
+.gradient-light-berry-pink {
+    background: linear-gradient(to right, #C89EDB, #FAD0DF);
 }
 
-.gradient-teal-blue {
-    background: linear-gradient(to right, #008080, #00008B);
+.gradient-light-teal-blue {
+    background: linear-gradient(to right, #66CCCC, #7A9BC1);
 }
 
-.gradient-slate-gray {
-    background: linear-gradient(to right, #2F4F4F, #D3D3D3);
+.gradient-light-slate-gray {
+    background: linear-gradient(to right, #B0C4C7, #ECECEC);
 }
 
-.gradient-magenta-violet {
-    background: linear-gradient(to right, #FF00FF, #8A2BE2);
+.gradient-light-magenta-violet {
+    background: linear-gradient(to right, #FFB0FF, #DAB1F4);
 }
 
-.gradient-cherry-lemon {
-    background: linear-gradient(to right, #FF1C1C, #FFD700);
+.gradient-light-cherry-lemon {
+    background: linear-gradient(to right, #FFA9A9, #FFF6B2);
 }
 
-.gradient-mint-white {
-    background: linear-gradient(to right, #98FF98, #FFFFFF);
+.gradient-light-mint-white {
+    background: linear-gradient(to right, #CCFFCC, #FAFAFA);
 }
 
-.gradient-burnt-sandy {
-    background: linear-gradient(to right, #CC5500, #F5DEB3);
+.gradient-light-burnt-sandy {
+    background: linear-gradient(to right, #F1B088, #FCEECB);
 }
 
-.gradient-indigo-lavender {
-    background: linear-gradient(to right, #4B0082, #E6E6FA);
+.gradient-light-indigo-lavender {
+    background: linear-gradient(to right, #A8A4D3, #E6EAFB);
 }
