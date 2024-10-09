@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Troll Vibe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet"> <!-- Creepster font -->
+  <style>
+    /* General page style */
+    body {
+      background-color: black;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Creepster', cursive; /* Creepster font */
+      color: white;
+      text-align: center;
+      overflow: hidden; /* Prevents scrolling */
+    }
+
+    /* Center the container */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; /* To position stars in the background */
+      z-index: 1; /* Ensure text is above the stars */
+    }
+
+    /* Troll face image styling */
+    .troll-face {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Styling for the random text */
+    .random-line {
+      font-size: 1.5em;
+      max-width: 90%;
+      text-transform: uppercase;
+      z-index: 2; /* Ensure text is above the stars */
+      text-shadow: 1px 1px 2px black; /* Optional shadow for better visibility */
+    }
+
+    /* Stars background */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black; /* Background color */
+    }
+
+    /* Individual stars */
+    .star {
+      position: absolute;
+      background-color: white; /* Star color */
+      border-radius: 50%; /* Make them circular */
+      opacity: 0.1; /* Dim stars for barely visible effect */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div> <!-- Stars background -->
+  <div class="content">
+    <!-- Troll face image slightly above the center -->
+    <img src="troll.png" alt="Troll Face" class="troll-face">
+    
+    <!-- Random abusive/double meaning line -->
+    <div class="random-line"></div>
+  </div>
+
+  <script>
+    // Array of dark double meaning and abusive lines
+    const lines = [
+      "Life's a joke, and you're the punchline.",
+      "Not all idiots are stupid, some are just you.",
+      "You’d be unstoppable if only you could think.",
+      "Is that your face, or did your neck throw up?",
+      "If ignorance is bliss, you must be ecstatic.",
+      "I could agree with you, but then we’d both be wrong.",
+      "You hear your mother calling you from the kitchen, but she died two years ago,"
+"I always thought the shadows in the corner of my room were just tricks of the light until they started whispering my name,"
+"The reflection in the mirror smiled back at me, but I wasn’t smiling,"
+"I woke up to the sound of my own voice singing a lullaby in the dark, but I was home alone,"
+"As I tucked my daughter into bed, she whispered, 'Daddy, there’s someone under my bed.' I bent down to look, and she said, 'Daddy, there’s someone in my bed,'"
+"I glanced at my phone and saw a message from my wife: 'I’m home.' I turned to see her in the doorway, but the message was sent an hour ago,"
+"I love hearing the sounds of my children playing in the basement; too bad I don’t have any kids,"
+"I was alone in my room when I heard a voice softly say, 'Don't worry, I won't let you fall asleep this time,'"
+"The last person who lived in my house was found dead in the attic. I just discovered a hidden staircase leading up there,"
+"Each night, I hear footsteps in the hallway; I’m the only one who lives here,"
+"I received a call from my own number, but when I answered, I heard only my own voice whispering, 'Help me,'"
+"I found a note on my pillow that said, 'I’m watching you sleep.' I live alone,"
+"As I scrolled through old photos, I found one of me sleeping in my bed—taken last night,"
+"I thought I was dreaming when I saw a figure standing at the foot of my bed, but the figure didn’t disappear when I woke up,"
+"The sound of laughter from the children's playground next door stopped abruptly when I stepped outside to look,"
+"I opened my front door to find a letter addressed to me from 'Your Future Self,' warning me not to trust anyone,"
+"My GPS just took me to a dead-end road, but I could hear a child crying in the woods,"
+"I fell asleep during a thunderstorm, but woke up to find the house perfectly still, and the lights off,"
+"Every time I close my eyes, I see the same dark figure hovering over me, waiting,"
+"I heard a voice whispering my name, but when I turned around, I was completely alone,"
+"I took a picture of my friends at the party, but there’s a strange face in the background that none of us recognized,"
+"When I checked the time on my watch, it said 3:33 AM, and the power went out,"
+"I keep hearing my name called in the distance, but it's always followed by an eerie silence,"
+"I woke up to the sound of my own footsteps echoing through the hallway, even though I was in bed,"
+"Each night, I find my bedroom door ajar, even though I always lock it before going to sleep,"
+"I received a text from my neighbor saying, 'Please stop looking at me through your window,' but I was in bed the whole time,"
+"I found a series of photographs of myself sleeping, taken from inside my house,"
+"Late at night, I hear someone humming a lullaby outside my window, but I live in the middle of nowhere,"
+"I discovered an old photo album with pictures of my house long before I moved in, and there are people in every photo who look just like me,"
+"I always thought the scratching noise was just the house settling until I found claw marks in the walls,"
+"When I turned off the lights, I could still see a faint glow coming from the closet,"
+"The air in the room changed, and I felt a chill run down my spine, but I was the only one there,"
+"I woke up to find my bedroom filled with old toys I thought I had thrown away years ago,"
+"My cat stared at the corner of the room, hissing at something I couldn’t see,"
+"I heard someone softly calling my name from the bathroom, but the door was locked,"
+"I was about to take a picture when I noticed the figure standing behind me in the lens reflection,"
+"I keep finding dirty handprints on my windows, but I live on the second floor,"
+"Every morning, I wake up to the sound of children laughing outside, but there are no children in my neighborhood,"
+"I found a strange key hidden in my attic, but I have no idea what it opens,"
+"I started keeping a journal, but when I flipped through the pages, I found entries in handwriting that wasn’t mine,"
+"Late one night, I heard someone breathing heavily outside my bedroom door, but I was alone in the house,"
+"I discovered a box of old letters in the attic, each addressed to me but written in a language I couldn’t understand,"
+"I often hear whispers coming from my closet, and every time I look, there’s nothing there,"
+"I found an old diary that belonged to the previous owner of my house, and the last entry said, 'I’m still here,'"
+"When I woke up, the figure from my dreams was standing at the foot of my bed, staring down at me,"
+"I always thought the creaks in the floorboards were just the house settling, until they started mimicking my footsteps,"
+"I was watching a horror movie when I heard a knock on my front door, but I live in a remote area,"
+"I woke up to find my face smeared with blood, but I don’t remember anything from the night before,"
+"I keep hearing the laughter of a child echoing in my empty house, but I haven’t had any visitors,"
+"I glanced at my security camera footage, and there was someone standing at my front door for hours, staring at the camera,"
+"I noticed a figure watching me from the woods every time I went out for a walk,"
+"The lights flickered, and for a brief moment, I saw the silhouette of a person standing behind me,"
+"When I turned on my computer, it was already logged in, with a document open that I never wrote,"
+"I woke up in a cold sweat after dreaming of a place I’ve never been, only to find a photo of it on my wall the next morning,"
+"I found a message carved into my bathroom mirror that read, 'I’ll be with you soon,' appearing every time I take a shower."
+
+    
+    ];
+
+    // Get the random line container
+    const lineElement = document.querySelector('.random-line');
+
+    // Function to get a random line
+    function getRandomLine() {
+      const randomIndex = Math.floor(Math.random() * lines.length);
+      return lines[randomIndex];
+    }
+
+    // Set the random line on page load
+    lineElement.textContent = `"${getRandomLine()}"`;
+
+    // Function to create stars
+    function createStars(numStars) {
+      const starsContainer = document.querySelector('.stars');
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        const size = Math.random() * 2 + 1; // Random size between 1 and 3px
+        star.classList.add('star');
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        star.style.top = `${Math.random() * 100}vh`; // Random vertical position
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Create a random number of stars
+    createStars(100); // You can adjust the number of stars here
+  </script>
+
+</body>
+</html>
