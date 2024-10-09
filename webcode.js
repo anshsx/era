@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeSettings = document.getElementById('closeSettings');
     const fontSizeInput = document.getElementById('fontSize');
     const tabSizeInput = document.getElementById('tabSize');
-    const autoRunInput = document.getElementById('autoRun');
-    const autoSaveInput = document.getElementById('autoSave');
     const themeSelect = document.getElementById('theme');
     const keymapSelect = document.getElementById('keymap');
     const layoutSelect = document.getElementById('layout');
@@ -57,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeMirrorInstances = {};
 
     function createCodeMirrorInstance(mode) {
-        return CodeMirror(editor, {
+        const instance = CodeMirror(editor, {
             mode: mode,
             theme: 'dracula',
             lineNumbers: true,
@@ -80,6 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Ctrl-G": "jumpToLine"
             }
         });
+
+        // Add autosave and autorun functionality
+        instance.on('change', () => {
+            autoSave();
+            updatePreview();
+        });
+
+        return instance;
+    }
+
+    function autoSave() {
+        if (currentFile) {
+            files[currentFile] = codeMirrorInstances[currentFile].getValue();
+            localStorage.setItem('savedFiles', JSON.stringify(files));
+            showToast('Autosaved');
+        }
     }
 
     function updatePreview() {
@@ -259,10 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
     newFileBtn.addEventListener('click', createNewFile);
     runBtn.addEventListener('click', updatePreview);
     saveBtn.addEventListener('click', () => {
-        if (currentFile) {
-            files[currentFile] = codeMirrorInstances[currentFile].getValue();
-        }
-        localStorage.setItem('savedFiles', JSON.stringify(files));
+        autoSave();
         showToast('Code saved successfully!');
     });
 
@@ -320,31 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
             instance.setOption('tabSize', tabSize);
             instance.setOption('indentUnit', tabSize);
         });
-    });
-
-    autoRunInput.addEventListener('change', (e) => {
-        if (e.target.checked) {
-            Object.values(codeMirrorInstances).forEach(instance => {
-                instance.on('change', updatePreview);
-            });
-        } else {
-            Object.values(codeMirrorInstances).forEach(instance => {
-                instance.off('change', updatePreview);
-            });
-        }
-    });
-
-    autoSaveInput.addEventListener('change', (e) => {
-        if (e.target.checked) {
-            autoSaveInterval = setInterval(() => {
-                if (currentFile) {
-                    files[currentFile] = codeMirrorInstances[currentFile].getValue();
-                }
-                localStorage.setItem('savedFiles', JSON.stringify(files));
-            }, 30000); // Auto-save every 30 seconds
-        } else {
-            clearInterval(autoSaveInterval);
-        }
     });
 
     themeSelect.addEventListener('change', (e) => {
@@ -418,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeHandle.addEventListener('touchstart', (e) => {
         isResizing = true;
         document.addEventListener('touchmove', handleResize);
+        
         document.addEventListener('touchend', stopResize);
     }, { passive: true });
 
