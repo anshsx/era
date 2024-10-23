@@ -11,6 +11,10 @@
             margin: 0;
             padding: 0;
             user-select: none; /* Prevent text selection */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of the viewport */
             overflow: hidden; /* Prevent scrolling while video is playing */
         }
 
@@ -38,14 +42,13 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 30px;
-            width: 400px;
+            width: 400px; /* Fixed width */
+            max-width: 90%; /* Prevent overflow on small screens */
+            margin: 20px; /* Margin for spacing */
             transition: all 0.5s ease; /* Slowed down entry animation */
-            border: 1px solid #555; /* Thin dark grey border */
             opacity: 0; /* Start invisible for animation */
             animation: fadeIn 0.8s forwards; /* Slow fade-in animation for container */
             display: none; /* Hide until video finishes */
-            position: relative;
-            margin: 50px auto; /* Center container */
         }
 
         .app-bar {
@@ -136,6 +139,14 @@
                 transform: translateY(0);
             }
         }
+
+        /* Floating effect for FAQ container */
+        .faq-container {
+            padding: 30px;
+            border: 2px solid #cfd8dc; /* Soft border for floating effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+        }
+
     </style>
 </head>
 <body>
