@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern FAQ UI</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            user-select: none; /* Prevent text selection */
+            overflow: hidden; /* Prevent scrolling while video is playing */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Ensure overlay is above everything else */
+        }
+
+        .video {
+            width: 100%; /* Make video responsive */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 600px; /* Limit video size */
+        }
+
+        .faq-container {
+            background-color: #f5f5f5; /* Light grey background */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            transition: all 0.5s ease; /* Slowed down entry animation */
+            border: 1px solid #555; /* Thin dark grey border */
+            opacity: 0; /* Start invisible for animation */
+            animation: fadeIn 0.8s forwards; /* Slow fade-in animation for container */
+            display: none; /* Hide until video finishes */
+            position: relative;
+            margin: 50px auto; /* Center container */
+        }
+
+        .app-bar {
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px; /* Space between header and FAQ items */
+            font-size: 24px;
+            font-weight: bold;
+            color: #004c8c; /* Header text color */
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: none; /* Remove hover effect */
+            border-radius: 10px;
+            background-color: transparent; /* Remove the white background */
+            outline: none; /* Remove focus outline */
+        }
+
+        .faq-item button:focus {
+            outline: none; /* Ensure no outline on focus */
+        }
+
+        .faq-item button .icon {
+            font-size: 24px;
+            color: #004c8c; /* Blue color for the + and × icon */
+            margin-right: 10px; /* Space between icon and text */
+            transition: none; /* Remove hover effect */
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            padding: 0 10px;
+            transition: max-height 0.4s ease;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0; /* Start invisible for animation */
+        }
+
+        .active .faq-answer {
+            display: block;
+            max-height: 200px; /* Adjust based on content size */
+            opacity: 1; /* Fully visible when active */
+            transition: opacity 0.4s ease; /* Add opacity transition */
+        }
+
+        .active button {
+            color: #004c8c; /* Match text color to icon color when open */
+        }
+
+        .active .icon {
+            transform: rotate(45deg); /* Rotate + to make it a cross (×) */
+            color: #004c8c; /* Keep the +/× icon blue */
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px); /* Slide in effect */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay" id="videoOverlay">
+    <video class="video" id="introVideo" autoplay muted>
+        <source src="era.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div class="faq-container" id="faqContainer">
+    <div class="app-bar">Cheat Codes</div> <!-- Simple Heading -->
+    
+    <div class="faq-item">
+        <button onclick="toggleFAQ(this)">
+            <span class="icon">+</span> How do I install Arc Search?
+        </button>
+        <div class="faq-answer">
+            To install Arc Search, visit the app store on your device, search for "Arc Search" and click on install.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button onclick="toggleFAQ(this)">
+            <span class="icon">+</span> What devices are supported?
+        </button>
+        <div class="faq-answer">
+            Arc Search is supported on Android and iOS devices, along with desktop operating systems such as Windows and macOS.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button onclick="toggleFAQ(this)">
+            <span class="icon">+</span> How do I set Arc Search as my default mobile browser?
+        </button>
+        <div class="faq-answer">
+            Go to your phone settings, navigate to the browser settings, and select Arc Search as the default browser.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button onclick="toggleFAQ(this)">
+            <span class="icon">+</span> How do I sync across mobile and desktop?
+        </button>
+        <div class="faq-answer">
+            Sign in with the same account on both devices, and your data will sync automatically across mobile and desktop.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button onclick="toggleFAQ(this)">
+            <span class="icon">+</span> How do I share feedback?
+        </button>
+        <div class="faq-answer">
+            You can share feedback via the feedback section in the app settings or by contacting the support team directly.
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to hide the overlay and show the FAQ container
+    function hideOverlay() {
+        const overlay = document.getElementById('videoOverlay');
+        const faqContainer = document.getElementById('faqContainer');
+        overlay.style.display = 'none'; // Hide overlay
+        faqContainer.style.display = 'block'; // Show FAQ container
+        faqContainer.style.opacity = 1; // Ensure FAQ container is visible
+    }
+
+    // Event listener for video end
+    document.getElementById('introVideo').addEventListener('ended', hideOverlay);
+
+    // Event listener for click on overlay
+    document.getElementById('videoOverlay').addEventListener('click', hideOverlay);
+
+    // Fade in the container on page load
+    window.onload = function() {
+        document.querySelector('.faq-container').style.opacity = 0; // Start invisible
+        document.querySelector('.faq-container').style.display = 'none'; // Hide initially
+    };
+
+    function toggleFAQ(clickedButton) {
+        // Close all other FAQ items
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach((item) => {
+            if (item !== clickedButton.parentElement) {
+                item.classList.remove('active');
+            }
+        });
+
+        // Toggle the clicked FAQ item
+        clickedButton.parentElement.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
