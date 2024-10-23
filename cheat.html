@@ -11,11 +11,8 @@
             margin: 0;
             padding: 0;
             user-select: none; /* Prevent text selection */
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 100vh; /* Full height of the viewport */
             overflow: hidden; /* Prevent scrolling while video is playing */
+            height: 100vh; /* Full height for the video overlay */
         }
 
         .overlay {
@@ -41,10 +38,11 @@
             background-color: #f5f5f5; /* Light grey background */
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 400px; /* Fixed width */
+            padding: 20px; /* Reduced padding */
+            width: 350px; /* Adjusted width for smaller container */
             max-width: 90%; /* Prevent overflow on small screens */
-            margin: 20px; /* Margin for spacing */
+            margin: 50px auto; /* Center the container */
+            position: relative;
             transition: all 0.5s ease; /* Slowed down entry animation */
             opacity: 0; /* Start invisible for animation */
             animation: fadeIn 0.8s forwards; /* Slow fade-in animation for container */
@@ -140,13 +138,39 @@
             }
         }
 
-        /* Floating effect for FAQ container */
-        .faq-container {
-            padding: 30px;
-            border: 2px solid #cfd8dc; /* Soft border for floating effect */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+        /* Ensure the body can scroll after video */
+        body.scrolling {
+            overflow: auto; /* Allow body scrolling */
         }
 
+        /* Image at the top of the FAQ container */
+        .app-image {
+            width: 100%;
+            max-width: 200px; /* Set a max width for the image */
+            cursor: pointer; /* Change cursor to pointer */
+            display: block; /* Ensure block display */
+            margin: 0 auto 20px auto; /* Center image with margin */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .faq-container {
+                width: 95%; /* Adjust for smaller screens */
+                padding: 15px; /* Less padding on small screens */
+            }
+
+            .app-bar {
+                font-size: 20px; /* Smaller font for app bar */
+            }
+
+            .faq-item button {
+                font-size: 16px; /* Smaller button text */
+            }
+
+            .faq-answer {
+                font-size: 14px; /* Smaller answer text */
+            }
+        }
     </style>
 </head>
 <body>
@@ -157,6 +181,8 @@
         Your browser does not support the video tag.
     </video>
 </div>
+
+<img src="era.png" alt="App Image" class="app-image" onclick="openPlayStore()" /> <!-- Change this to your image URL -->
 
 <div class="faq-container" id="faqContainer">
     <div class="app-bar">Cheat Codes</div> <!-- Simple Heading -->
@@ -215,6 +241,9 @@
         overlay.style.display = 'none'; // Hide overlay
         faqContainer.style.display = 'block'; // Show FAQ container
         faqContainer.style.opacity = 1; // Ensure FAQ container is visible
+
+        // Allow scrolling after the video
+        document.body.classList.add('scrolling'); // Enable scrolling on the body
     }
 
     // Event listener for video end
@@ -223,25 +252,27 @@
     // Event listener for click on overlay
     document.getElementById('videoOverlay').addEventListener('click', hideOverlay);
 
-    // Fade in the container on page load
-    window.onload = function() {
-        document.querySelector('.faq-container').style.opacity = 0; // Start invisible
-        document.querySelector('.faq-container').style.display = 'none'; // Hide initially
-    };
+    // Function to toggle FAQ items
+    function toggleFAQ(button) {
+        const faqItem = button.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = button.querySelector('.icon');
 
-    function toggleFAQ(clickedButton) {
-        // Close all other FAQ items
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach((item) => {
-            if (item !== clickedButton.parentElement) {
-                item.classList.remove('active');
-            }
-        });
+        if (faqItem.classList.contains('active')) {
+            faqItem.classList.remove('active');
+            icon.innerHTML = '+'; // Change icon to + when closed
+        } else {
+            faqItem.classList.add('active');
+            icon.innerHTML = '×'; // Change icon to × when open
+        }
+    }
 
-        // Toggle the clicked FAQ item
-        clickedButton.parentElement.classList.toggle('active');
+    // Function to open Play Store
+    function openPlayStore() {
+        const packageName = 'com.erainc.era';
+        const url = `https://play.google.com/store/apps/details?id=${packageName}`;
+        window.open(url, '_blank'); // Open Play Store link in a new tab
     }
 </script>
-
 </body>
 </html>
