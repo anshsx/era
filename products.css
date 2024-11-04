@@ -75,61 +75,61 @@ img {
 
 
 .gradient-sunset {
-    background: linear-gradient(to right, #FFA07A, #D987CB);
+    background: linear-gradient(to right, #FF6F61, #FFB74D); /* Coral & Orange */
 }
 
 .gradient-ocean {
-    background: linear-gradient(to right, #ADD8E6, #B6E3D3);
+    background: linear-gradient(to right, #FF9AA2, #FFB3BA); /* Pink & Light Pink */
 }
 
 .gradient-royal-sky {
-    background: linear-gradient(to right, #6A8DB3, #B0E0E6);
+    background: linear-gradient(to right, #FF8C00, #FFB6C1); /* Orange & Light Pink */
 }
 
 .gradient-coral-peach {
-    background: linear-gradient(to right, #FFC1B6, #FFE4E1);
+    background: linear-gradient(to right, #FF6F61, #FFD54F); /* Coral & Yellow */
 }
 
 .gradient-lavender-pink {
-    background: linear-gradient(to right, #EEEAF8, #FFCCE5);
+    background: linear-gradient(to right, #FF6F91, #D5006D); /* Bright Pink & Dark Pink */
 }
 
 .gradient-emerald-lime {
-    background: linear-gradient(to right, #A5DCA0, #E5FBD7);
+    background: linear-gradient(to right, #A5DCA0, #FFD700); /* Light Green & Gold */
 }
 
 .gradient-crimson-gold {
-    background: linear-gradient(to right, #F4A6A6, #FFEDB8);
+    background: linear-gradient(to right, #C2185B, #FFC107); /* Crimson & Gold */
 }
 
 .gradient-berry-pink {
-    background: linear-gradient(to right, #C89EDB, #FAD0DF);
+    background: linear-gradient(to right, #FF9EAA, #FF6F91); /* Light Pink & Bright Pink */
 }
 
 .gradient-teal-blue {
-    background: linear-gradient(to right, #66CCCC, #7A9BC1);
+    background: linear-gradient(to right, #009688, #80DEEA); /* Teal & Light Cyan */
 }
 
 .gradient-slate-gray {
-    background: linear-gradient(to right, #B0C4C7, #ECECEC);
+    background: linear-gradient(to right, #B0C4C7, #B0BEC5); /* Light Gray & Darker Gray */
 }
 
 .gradient-magenta-violet {
-    background: linear-gradient(to right, #FFB0FF, #DAB1F4);
+    background: linear-gradient(to right, #FF3D8E, #6A1B9A); /* Bright Magenta & Dark Violet */
 }
 
 .gradient-cherry-lemon {
-    background: linear-gradient(to right, #FFA9A9, #FFF6B2);
+    background: linear-gradient(to right, #FF5E9B, #FFF176); /* Cherry Pink & Lemon Yellow */
 }
 
 .gradient-mint-white {
-    background: linear-gradient(to right, #CCFFCC, #FAFAFA);
+    background: linear-gradient(to right, #99FF99, #F5F5F5); /* Mint Green & White */
 }
 
 .gradient-burnt-sandy {
-    background: linear-gradient(to right, #F1B088, #FCEECB);
+    background: linear-gradient(to right, #D77F7F, #FFF9C4); /* Burnt Orange & Light Yellow */
 }
 
 .gradient-indigo-lavender {
-    background: linear-gradient(to right, #A8A4D3, #E6EAFB);
-}
+    background: linear-gradient(to right, #4B0082, #E6EAFB); /* Indigo & Light Lavender */
+    }
