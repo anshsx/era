@@ -74,61 +74,61 @@ img {
 }
 
 .gradient-sunset {
-    background: linear-gradient(to right, #ff5733, #ffcc00); /* Bright Red to Yellow */
+    background: linear-gradient(to right, #D4145A, #FBB03B); /* Dark Pink to Gold */
 }
 
 .gradient-ocean {
-    background: linear-gradient(to right, #004e92, #ffffff); /* Deep Blue to White */
+    background: linear-gradient(to right, #BFF098, #6FD6FF); /* Light Green to Light Blue */
 }
 
 .gradient-royal-sky {
-    background: linear-gradient(to right, #4a00e0, #8e2de2); /* Purple to Violet */
+    background: linear-gradient(to right, #2E3192, #1BFFFF); /* Dark Blue to Bright Cyan */
 }
 
 .gradient-coral-peach {
-    background: linear-gradient(to right, #ff6f61, #ff9a00); /* Coral to Bright Orange */
+    background: linear-gradient(to right, #FF512F, #DD2476); /* Bright Red to Dark Pink */
 }
 
 .gradient-lavender-pink {
-    background: linear-gradient(to right, #9b59b6, #ff6f91); /* Lavender to Bright Pink */
+    background: linear-gradient(to right, #EE9CA7, #FFDDE1); /* Soft Pink to Light Pink */
 }
 
 .gradient-emerald-lime {
-    background: linear-gradient(to right, #1abc9c, #f39c12); /* Teal to Bright Orange */
+    background: linear-gradient(to right, #C6EA8D, #FE90AF); /* Light Green to Pink */
 }
 
 .gradient-crimson-gold {
-    background: linear-gradient(to right, #e74c3c, #f1c40f); /* Crimson to Gold */
+    background: linear-gradient(to right, #662D8C, #ED1E79); /* Dark Purple to Bright Pink */
 }
 
 .gradient-berry-pink {
-    background: linear-gradient(to right, #d5006d, #ff4081); /* Dark Pink to Bright Pink */
+    background: linear-gradient(to right, #FF5F6D, #FFC371); /* Red to Light Orange */
 }
 
 .gradient-teal-blue {
-    background: linear-gradient(to right, #009688, #80deea); /* Teal to Light Cyan */
+    background: linear-gradient(to right, #4E65FF, #92EFFD); /* Bright Blue to Light Cyan */
 }
 
 .gradient-slate-gray {
-    background: linear-gradient(to right, #546e7a, #cfd8dc); /* Dark Slate to Light Slate */
+    background: linear-gradient(to right, #93A5CF, #E4EfE9); /* Light Blue to Very Light Gray */
 }
 
 .gradient-magenta-violet {
-    background: linear-gradient(to right, #ff007f, #7b1fa2); /* Bright Magenta to Dark Violet */
+    background: linear-gradient(to right, #A9F1DF, #FFBBBB); /* Light Green to Light Pink */
 }
 
 .gradient-cherry-lemon {
-    background: linear-gradient(to right, #ff5252, #fff176); /* Cherry Red to Lemon Yellow */
+    background: linear-gradient(to right, #FFECD2, #FCB69F); /* Light Cream to Light Peach */
 }
 
 .gradient-mint-white {
-    background: linear-gradient(to right, #00bcd4, #2930ff); /* Bright Cyan to White */
+    background: linear-gradient(to right, #A1C4FD, #C2E9FB); /* Light Blue to Light Cyan */
 }
 
 .gradient-burnt-sandy {
-    background: linear-gradient(to right, #d76d3c, #ffaf40); /* Burnt Orange to Light Sand */
+    background: linear-gradient(to right, #EA8D8D, #A890FE); /* Muted Red to Light Purple */
 }
 
 .gradient-indigo-lavender {
-    background: linear-gradient(to right, #5c6bc0, #e1bee7); /* Indigo to Light Lavender */
-    }
+    background: linear-gradient(to right, #FF61D2, #FE9090); /* Bright Pink to Light Pink */
+}
