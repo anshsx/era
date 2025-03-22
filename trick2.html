@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URL Emoji Animation</title>
+</head>
+<body>
+  <h1>Look at the URL bar!</h1>
+
+  <script>
+    const emojis = ['😐', '🙂', '😢', '😭', '😂', '😎'];
+    let index = 0;
+
+    setInterval(() => {
+      const emoji = emojis[index];
+      const newPath = '/' + emoji;
+      history.replaceState(null, '', newPath); // Update URL without page reload
+      index = (index + 1) % emojis.length;
+    }, 1000);
+  </script>
+</body>
+</html>
